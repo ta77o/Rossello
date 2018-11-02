@@ -64,7 +64,7 @@ SubProceso perfil<-LOGGUEO(MATUSU) // EL PARAMETRO MATUSU LLAMA A LA MATRIZ MARI
 				SiNo
 					fail<-fail+1;
 					SI FAIL = 3 ENTONCES
-						ESCRIBIR "TERCER ERROR, SERÁ BANNEADO";// AL TERCER ERROR DE CLAVE ES BANEADO
+						ESCRIBIR "TERCER ERROR, SERÃ BANNEADO";// AL TERCER ERROR DE CLAVE ES BANEADO
 						///ERROR QUE SE PUEDE PRESENTAR "ERROR DE CLAVE EN USUARIO VALIDO"
 					SiNo
 						escribir "ERROR ", FAIL, ", INGRESE LA CLAVE CORRECTA";	//INDICA QUE HUBO UN ERROR DE CLAVE
@@ -164,13 +164,13 @@ Funcion salida<-menu(usuario por valor,matrizcaja Por Referencia,matrizusuarios 
 	escribir '1:   Ver todos los registros de caja'        ;
 	escribir '2:   Ver todos los asignaciones de sucursales';
 	escribir '3:   Buscar registros de una sucursal';
-	escribir '4:   añadir una entrada de caja diaria';
+	escribir '4:   aÃ±adir una entrada de caja diaria';
 	
 	limiteopciones<-4;
 	si usuario="administrador" entonces
 		
-		escribir '5:   Ver todos los usuarios y contraseñas';           
-		escribir '6:   borrar un rejistro de caja';
+		escribir '5:   Ver todos los usuarios y contraseÃ±as';           
+		escribir '6:   borrar un registro de caja';
 		limiteopciones<-6;//indica las cantidad de opciones que hay
 	FinSi
 	escribir '0:   Salir ';
@@ -319,14 +319,14 @@ FinSubProceso
 ///fin mostrar valores de una sola sucursal
 
 ///ingreso de valores en caja
-Funcion escribircaja(matrizcaja por referencia,cantreg Por Referencia)// añade un registro de caja diaria
+Funcion escribircaja(matrizcaja por referencia,cantreg Por Referencia)// aÃ±ade un registro de caja diaria
 	definir i, opsucursal,ff, dd, mm,aa,cad como numero;
 	definir aprobado como logico;
 	aprobado<-falso;
 	
 	
 	i<-cantreg[0]; //para escribir en la ultima linea
-	cantreg[0]<-i+1;// para incrementar el tamaño de los registros
+	cantreg[0]<-i+1;// para incrementar el tamaÃ±o de los registros
 	
 	
 	opsucursal<-validadorsucursal(matrizsucursal,cantreg);
@@ -335,7 +335,7 @@ Funcion escribircaja(matrizcaja por referencia,cantreg Por Referencia)// añade u
 	mm<-101;
 	dd<-101;
 	Repetir
-		escribir ' Introducir año (dos ultimos digitos)';
+		escribir ' Introducir aÃ±o (dos ultimos digitos)';
 		leer aa;	
 	Hasta Que aa<100 y aa>=0
 	
@@ -352,7 +352,7 @@ Funcion escribircaja(matrizcaja por referencia,cantreg Por Referencia)// añade u
 		si dd>0 y dd<29 Entonces
 			aprobado<-Verdadero;
 		SiNo
-			si dd=29 y mm=2 y aa%4=0 Entonces //los años divisibles por 4 son los bisiestos
+			si dd=29 y mm=2 y aa%4=0 Entonces //los aÃ±os divisibles por 4 son los bisiestos
 				aprobado<-verdadero;
 			SiNo
 				si dd<31 y (mm=4 o mm=6 o mm=9 o mm=11) Entonces
@@ -373,7 +373,7 @@ Funcion escribircaja(matrizcaja por referencia,cantreg Por Referencia)// añade u
 	Hasta Que aprobado=Verdadero
 	
 	
-	ff<-aa*10000+mm*100+dd; matrizcaja(i,1)<-ff;  //  año mes y dia a un solo valor aammdd
+	ff<-aa*10000+mm*100+dd; matrizcaja(i,1)<-ff;  //  aÃ±o mes y dia a un solo valor aammdd
 	escribir ' Introducir valor caja diaria';
 	leer cad; matrizcaja(i,2)<-cad;
 	
@@ -390,7 +390,7 @@ Funcion borrarregistrocaja(matrizcaja Por Referencia,cantreg Por Referencia)
 		escribir "ingrese posicion para borrar";
 		leer posicion_paraborrar;
 		
-	Hasta Que posicion_paraborrar <cantreg(0) y posicion_paraborrar>0 //valida un valor menor que la cantidad de registros
+	Hasta Que posicion_paraborrar <= cantreg(0) y posicion_paraborrar>0 //valida un valor menor que la cantidad de registros
 	
 	
 	
